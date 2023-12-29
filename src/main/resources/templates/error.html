@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Error</title>
+</head>
+<body>
+<h2>Error</h2>
+<ul>
+    <li th:each="error : ${errors}" th:text="${error}"></li>
+</ul>
+<br/>
+<a th:href="${referer}">Go back</a>
+</body>
+</html>

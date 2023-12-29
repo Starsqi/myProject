@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Employee</title>
+</head>
+<body>
+<h2>Add Employee</h2>
+<br>
+<form method="post" action="/employees/add" th:object="${employee}">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" th:field="*{name}"/>
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br/>
+    <br>
+    <label for="surname">Surname:</label>
+    <input type="text" id="surname" name="surname" th:field="*{surname}"/>
+    <span th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></span><br/>
+    <br>
+    <label for="department">Department:</label>
+    <input type="text" id="department" name="department" th:field="*{department}"/>
+    <span th:if="${#fields.hasErrors('department')}" th:errors="*{department}"></span><br/>
+    <br>
+    <label for="salary">Salary:</label>
+    <input type="text" id="salary" name="salary" th:field="*{salary}"/>
+    <span th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"></span><br/>
+    <br>
+    <button type="submit">Save</button>
+</form>
+<br/>
+<a href="/employees">Back to All Employees</a>
+</body>
+</html>

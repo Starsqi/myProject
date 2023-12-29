@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Employees</title>
+</head>
+<br>
+<body>
+<h2>All Employees</h2>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Department</th>
+        <th>Salary</th>
+        <th>Actions</th>
+    </tr>
+    <br>
+    <tr th:each="employee : ${employees}">
+        <td th:text="${employee.id}"></td>
+        <td th:text="${employee.name}"></td>
+        <td th:text="${employee.surname}"></td>
+        <td th:text="${employee.department}"></td>
+        <td th:text="${employee.salary}"></td>
+        <td>
+            <a th:href="@{/employees/edit/{id}(id=${employee.id})}">Edit</a>
+            <a th:href="@{/employees/delete/{id}(id=${employee.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+<br>
+<br/>
+<a href="/employees/add">Add New Employee</a>
+<br/>
+<br>
+<form method="post" action="/employees/addFromCSV" enctype="multipart/form-data">
+    <input type="file" name="file" accept=".csv"/>
+    <button type="submit">Add from CSV</button>
+</form>
+</body>
+</html>
